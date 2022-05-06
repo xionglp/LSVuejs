@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './02-组件的css作用域/App.vue'
+import App from './05-商品页面进行切换/App.vue'
 
 createApp(App).mount('#app')
