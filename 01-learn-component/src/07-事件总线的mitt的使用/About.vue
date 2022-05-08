@@ -15,7 +15,6 @@
     methods: {
       btnClick() {
         emitter.emit(AAA_EVENT, {name: "xionglp", age: 18})
-        
         emitter.emit(BBB_EVENT, {address: "深圳市", height: 1.99})
       }
     }
