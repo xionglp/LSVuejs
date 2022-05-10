@@ -1,4 +1,21 @@
 import { createApp } from 'vue'
-import App from './01-mixin-extends/App.vue'
+import App from './02-compositionAPI基础/App.vue'
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+// 全局的mixin混入
+// app.mixin({
+//   data() {
+//     return {
+
+//     }
+//   },
+//   methods: {
+
+//   },
+//   created() {
+//     console.log("全局mixin")
+//   }
+// })
+
+app.mount('#app')
