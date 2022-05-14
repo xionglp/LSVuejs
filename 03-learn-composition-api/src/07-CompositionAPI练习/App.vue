@@ -7,8 +7,6 @@
 
     <h2>{{data}}</h2>
     <button @click="changeData">修改数据</button>
-
-
   </div>
 </template>
 
