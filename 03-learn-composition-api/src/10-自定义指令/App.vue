@@ -1,12 +1,20 @@
 <template>
   <div>
-    <h2>hello vue.js</h2>
+    <h2 v-format-time="'YYYY/MM/DD'">{{timestamp}}</h2>
+    <h2 v-format-time>{{timestamp}}</h2>
   </div>
 </template>
 
 <script>
+
   export default {
-    
+    setup() {
+      const timestamp = 1624452193;
+
+      return {
+        timestamp
+      }
+    }
   }
 </script>
 
