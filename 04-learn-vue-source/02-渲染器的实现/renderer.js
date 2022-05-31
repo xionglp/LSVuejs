@@ -22,7 +22,6 @@ const mount = (vnode, container) => {
       }
     }
   }
-  
 
   // 3.处理children
   if(vnode.children) {
