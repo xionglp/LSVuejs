@@ -1,14 +1,12 @@
 <template>
   <div>
-    <h2>About page</h2>
+    <h2>Category Page</h2>
   </div>
 </template>
 
 <script>
   export default {
-    created() {
-      console.log(this.$route.query);
-    }
+    
   }
 </script>
 
