@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "../pages/Home.vue";
-import About from "../pages/About.vue";
+// import Home from "../pages/Home.vue";
+// import About from "../pages/About.vue";
 
 // 配置映射关系
 const routes = [
@@ -10,12 +10,18 @@ const routes = [
     redirect: "/home", // 重定向
   },
   {
+    name: "home",
     path: "/home",
-    component: Home
+    component: () => import(/*webpackChunkName: "home-chunk" */ "../pages/Home.vue"), // 路由懒加载
+    meta: {
+      name: "xionglp",
+      id: 1001,
+    }
   },
   {
+    name: "about",
     path: "/about",
-    component: About
+    component: () => import(/*webpackChunkName: "about-chunk" */ "../pages/About.vue")
   },
 ]
 
