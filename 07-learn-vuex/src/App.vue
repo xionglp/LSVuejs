@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Home></Home>
-    <h2>App: {{$store.state.counter}}</h2>
+    <!-- <h2>App: {{$store.state.counter}}</h2> -->
     <button @click="increment">+1</button>
     <button @click="decrement">+1</button>
   </div>

@@ -1,14 +1,15 @@
 <template>
   <div>
-    <h2>Home: {{ $store.state.counter }}</h2>
-    <h2>Home: {{ $store.state.name }}</h2>
-    <!-- <h2>Home Age: {{ age }}</h2> -->
-    <h2>Home Height: {{ customHeight }}</h2>
+    <h2>counter: {{ $store.state.counter }}</h2>
+    <h2>name: {{ age }}</h2>
+    <h2>counter2: {{ sCounter }}</h2>
+    <br>
   </div>
 </template>
 
 <script>
-  import { mapState } from "vuex";
+  import { mapState, useStore } from "vuex";
+  import { computed } from "vue";
 
   export default {
     computed: {
@@ -16,11 +17,21 @@
         return "Kobe Bryant"
       },
       // 其他的计算属性，从state获取
-      // ...mapState(["counter", "age", "name", "height"])
-      ...mapState({
-        customName: state => state.name,
-        customHeight: state => state.height,
-      })
+      ...mapState(["name", "age"]),
+    },
+    setup() {
+
+      const store = useStore();
+      const sCounter = computed(() => {
+        return store.state.counter;
+      });
+
+      const storeState = mapState(["counter", "name", "age"]);
+
+      return {
+        sCounter,
+        ...storeState
+      }
     },
     methods: {
 
