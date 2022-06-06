@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import { INCREMENT_N } from "./mutation-types";
 
 const store = createStore({
   state() {
@@ -54,6 +55,10 @@ const store = createStore({
     },
     decrement(state) {
       state.counter--
+    },
+    [INCREMENT_N](state, payload) {
+      console.log(payload);
+      state.counter = state.counter + payload.n;
     }
   }
 });
