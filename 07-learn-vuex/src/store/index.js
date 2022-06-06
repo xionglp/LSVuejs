@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import axios from "axios";
 import { INCREMENT_N } from "./mutation-types";
 
 const store = createStore({
@@ -14,7 +15,8 @@ const store = createStore({
         {name: "大话Http", price: 240, count: 5},
         {name: "webpack工程", price: 110, count: 2},
       ],
-      discount: 0.8
+      discount: 0.8,
+      banners: []
     }
   },
   getters: {
@@ -59,6 +61,28 @@ const store = createStore({
     [INCREMENT_N](state, payload) {
       console.log(payload);
       state.counter = state.counter + payload.n;
+    },
+    addBannerData(state, payload) {
+      state.banners = payload
+    }
+  },
+  actions: {
+    //放函数
+    incrementAction(context, payload) {
+      console.log(payload);
+      setTimeout(() => {
+        context.commit("increment");
+      }, 1000);
+    },
+    decrementAction(context, payload) {
+      console.log(payload);
+      context.commit("decrement")
+    },
+    getHomeMultiData(context) {
+      axios.get("http://123.207.32.32:8000/home/multidata").then(res => {
+        console.log(res.data.data.banner.list);
+        context.commit("addBannerData", res.data.data.banner.list);
+      })
     }
   }
 });
