@@ -7,21 +7,27 @@
       <h2>{{ nameInfo }}</h2>
       <h2>{{ ageInfo }}</h2>
       <h2>{{ heightInfo }}</h2>
-      <h2>{{ sNameInfo }}</h2>
     <hr>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from "vuex"
+  import { useGetters } from "../hooks/useGetters";
 
   export default {
     computed: {
-      ...mapGetters(["nameInfo", "ageInfo", "heightInfo"]),
-      ...mapGetters({
-        sNameInfo: "nameInfo"
-      })
+      // nameInfo() {
+      //   return this.$store.getters.nameInfo;
+      // }
     },
+    setup() {
+      // const store = useStore();
+      const storeGetters  = useGetters(["nameInfo", "ageInfo", "heightInfo"]);
+
+      return {
+        ...storeGetters
+      }
+    }
 
   }
 </script>

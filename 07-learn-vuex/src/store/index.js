@@ -37,7 +37,16 @@ const store = createStore({
         }
         return (totalPrice * getters.currentDiscount).toFixed(2);
       }
-    }
+    },
+    nameInfo(state) {
+      return `name: ${state.name}`
+    },
+    ageInfo(state) {
+      return `age: ${state.age}`
+    },
+    heightInfo(state) {
+      return `height: ${state.height}`
+    },
   },
   mutations: {
     increment(state) {
