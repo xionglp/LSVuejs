@@ -79,9 +79,14 @@ const store = createStore({
       context.commit("decrement")
     },
     getHomeMultiData(context) {
-      axios.get("http://123.207.32.32:8000/home/multidata").then(res => {
-        console.log(res.data.data.banner.list);
-        context.commit("addBannerData", res.data.data.banner.list);
+      return new Promise((resolve, reject) => {
+        axios.get("http://123.207.32.32:8000/home/multidata").then(res => {
+          console.log(res.data.data.banner.list);
+          context.commit("addBannerData", res.data.data.banner.list);
+          resolve("请求成功，回调函数返回数据")
+        }).catch(err => {
+          reject(err);
+        })
       })
     }
   }
