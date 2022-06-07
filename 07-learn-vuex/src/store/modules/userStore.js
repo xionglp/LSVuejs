@@ -1,7 +1,8 @@
 const userStoreModule = {
+  nameSpaced: true,
   state() {
     return {
-      userCounter: 200
+      userCounter: 1000
     }
   },
   getters: {

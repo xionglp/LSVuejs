@@ -5,7 +5,7 @@ import userStoreModule from "./modules/userStore";
 const store = createStore({
   state() {
     return {
-      rootCounter: 22
+      rootCounter: 10
     }
   },
   getters: {

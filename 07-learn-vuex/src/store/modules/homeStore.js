@@ -1,4 +1,5 @@
 const homeStoreModule = {
+  namespaced: true,
   state() {
     return {
       homeCounter: 100
@@ -18,7 +19,10 @@ const homeStoreModule = {
     }
   },
   actions: {
-    
+    incrementAction(context) {
+      context.commit("increment");
+      context.commit("increment", null, {root: true})
+    }
   }
 }
 
