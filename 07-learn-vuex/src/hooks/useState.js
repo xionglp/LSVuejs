@@ -1,10 +1,16 @@
 import { computed } from "vue";
-import { useStore, mapState } from "vuex";
+import { useStore, mapState, createNamespacedHelpers } from "vuex";
 
-export function useState(mapper) {
+export function useState(moduleName, mapper) {
+  let mapFn = mapState;
+  if (typeof moduleName === "string" && moduleName.length > 0) {
+    mapFn = createNamespacedHelpers(moduleName).mapState
+  } else {
+    mapper = moduleName
+  }
+
   const store = useStore();
-
-  const storeStateFns = mapState(mapper);
+  const storeStateFns = mapFn(mapper);
 
   const storeState = {};
   Object.keys(storeStateFns).forEach(fnKey => {
