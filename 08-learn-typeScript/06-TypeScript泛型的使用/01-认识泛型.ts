@@ -9,4 +9,5 @@ sum<number>(20)
 sum<{ name: string }>({ name: 'xionglp' })
 
 sum(50)
+
 sum('abc')
