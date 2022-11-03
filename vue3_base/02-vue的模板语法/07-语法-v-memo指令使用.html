@@ -8,7 +8,12 @@
 <body>
 
   <div id="app">
-    <h2>{{message}}</h2>
+    <div v-memo="[name]">
+      <h2>{{ name }}</h2>
+      <h2>{{ age }}</h2>
+      <h2>{{ height }}</h2>
+      <button @click="updateInfo">更改信息</button>
+    </div>
   </div>
   
   <script src="../lib/vue.js"></script>
@@ -18,9 +23,17 @@
       // data: option api
       data: function() {
         return {
-          message: "Hello Vue"
+          name: "xionglp",
+          age: 18,
+          height: 1.88
         }
       },
+      methods: {
+        updateInfo() {
+          this.name = "xlp"
+          this.age = 20
+        }
+      }
     })
 
     // 2.挂载app
