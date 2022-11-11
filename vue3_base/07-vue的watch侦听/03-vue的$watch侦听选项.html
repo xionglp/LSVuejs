@@ -8,7 +8,7 @@
 <body>
 
   <div id="app">
-    <h2>{{message}}</h2>
+    <h2>{{ message }}</h2>
     <button @click="changeMessage">修改message</button>
   </div>
   
@@ -19,28 +19,21 @@
       // data: option api
       data: function() {
         return {
-          message: "Hello Vue",
-          info: { name: "xionglp", age: 18 }
+          message: "Hello Vue"
         }
       },
       methods: {
         changeMessage() {
           this.message = "hello xionglp"
-          this.info = { name: "kobe bryant" }
         }
       },
-      watch: {
-        message(newValue, oldValue) {
-          console.log("侦听message---", newValue, oldValue)
-        },
-        info(newValue, oldValue) {
-          // 如果侦听的是对象类型， 获取的是代理对象Proxy类型
-          console.log("侦听info----", newValue, oldValue)
-
-          // 获取原生对象
-          console.log({ ...newValue })
-          console.log(Vue.toRaw(oldValue))
-        }
+      created() {
+        this.$watch("message", function(newValue, oldValue) {
+          console.log("侦听message改变---", newValue, oldValue)
+        }, {
+          deep: true,
+          immediate: true
+        })
       }
     })
 
