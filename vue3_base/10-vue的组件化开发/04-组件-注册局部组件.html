@@ -13,17 +13,15 @@
   
   <script src="../lib/vue.js"></script>
   <script>
-    const App = {
+    // 1.创建app
+    const app = Vue.createApp({
       // data: option api
       data: function() {
         return {
           message: "Hello Vue"
         }
       },
-    }
-
-    // 1.创建app
-    const app = Vue.createApp(App)
+    })
 
     // 2.挂载app
     app.mount("#app")
