@@ -3,18 +3,18 @@
     <h3>{{ message }}</h3>
     <h3>当前计数: {{ counter }}</h3>
 
-    <product-item></product-item>
-    <product-item></product-item>
+    <app-header></app-header>
   </div>
 </template>
 
 <script>
-import ProductItem from './components/ProductItem.vue'
+import AppHeader from './components/AppHeader.vue'
 
 export default {
   name: 'App',
   components: {
-    ProductItem,
+    // ProductItem,
+    AppHeader,
   },
   data() {
     return {
