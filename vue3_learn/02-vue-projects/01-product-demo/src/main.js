@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import productItem from "./components/productItem.vue"
+// import productItem from "./components/productItem.vue"
 
 const app = createApp(App)
 

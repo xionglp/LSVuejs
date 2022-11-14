@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import productItem from './components/productItem.vue'
+import ProductItem from './components/ProductItem.vue'
 
 export default {
   name: 'App',
   components: {
-    productItem,
+    ProductItem,
   },
   data() {
     return {
