@@ -9,32 +9,29 @@
       </button>
     </div>
     <div class="view">
-      <!-- 方法一： v-if进行判断 决定显示哪个组件 -->
-      <!-- <template v-if="currentTab === 'home'">
-        <home></home>
-      </template>
-      <template v-else-if="currentTab === 'about'">
-        <about></about>
-      </template>
-      <template v-else-if="currentTab === 'category'">
-        <category></category>
-      </template> -->
-
-      <component :is="currentTab" name="xionglp" :age="18" @homeBtnClick="homeEvent"></component>
+      <!-- include: 组件的名称来自于组件定义时name选项 -->
+      <keep-alive include="home,about">
+        <component :is="currentTab"></component>
+      </keep-alive>
+      
     </div>
   </div>
 </template>
 
 <script>
+import { defineAsyncComponent }  from "vue"
 import Home from "./views/Home.vue"
 import About from "./views/About.vue"
-import Category from "./views/Category.vue"
+// import Category from "./views/Category.vue"
+
+// Vue中实现异步组件
+const AsyncCategory = defineAsyncComponent(() => import("./views/Category.vue"))
 
 export default {
   components: {
     Home,
     About,
-    Category
+    Category: AsyncCategory
   },
   data() {
     return {
@@ -45,9 +42,6 @@ export default {
   methods: {
     tabClick(tabName) {
       this.currentTab = tabName
-    },
-    homeEvent(payload) {
-      console.log(payload)
     }
   }
 }
