@@ -6,9 +6,13 @@
 
 <script>
 export default {
-  methods: {
-    showInfoFoo() {
+  setup() {
+    function showInfoFoo() {
       console.log("showInfoFoo------")
+    }
+
+    return {
+      showInfoFoo
     }
   }
 }

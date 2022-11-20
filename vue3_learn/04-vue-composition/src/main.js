@@ -1,3 +1,3 @@
 import { createApp } from 'vue'
-import App from "./05-setup中ref引入元素/App.vue"
+import App from "./10-setup-Hooks练习/App.vue"
 createApp(App).mount('#app')
