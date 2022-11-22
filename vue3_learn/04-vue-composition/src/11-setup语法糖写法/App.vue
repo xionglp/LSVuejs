@@ -3,7 +3,12 @@
     <h2>message: {{ message }}</h2>
     <button @click="changeMessage">修改message</button>
 
-    <show-info name="xionglp" :age="age" @change-age-event="changeAgeEvent" ref="showInfoRef"></show-info>
+    <show-info 
+              name="xionglp" 
+              :age="age" 
+              @change-age-event="changeAgeEvent" 
+              ref="showInfoRef">
+    </show-info>
     <ShowInfo></ShowInfo>
   </div>
 </template>
