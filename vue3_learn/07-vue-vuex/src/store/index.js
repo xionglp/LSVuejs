@@ -3,6 +3,7 @@ import { createStore } from "vuex"
 const store = createStore({
   state: () => {
     return {
+      // 本地模拟数据
       counter: 99,
       name: "xionglp",
       level: 100,
@@ -11,7 +12,11 @@ const store = createStore({
         { name: "kobe", age: 39, id: 110 },
         { name: "james", age: 36, id: 111 },
         { name: "curry", age: 57, id: 112 }
-      ]
+      ],
+
+      // 网络请求数据
+      banners: [],
+      recommends: []
     }
   },
   getters: {
@@ -56,6 +61,49 @@ const store = createStore({
     changeInfo(state, newInfo) {
       state.name = newInfo.name
       state.level = newInfo.level
+    },
+    changeBanners(state, banners) {
+      state.banners = banners
+    },
+    changeRecommends(state, recommends) {
+      state.recommends = recommends
+    }
+  },
+  actions: {
+    incrementCounterAction(context) {
+      context.commit("increment")
+    },
+    changeNameAction(context, payload) {
+      context.commit("changeName", payload)
+    },
+    // fetch 拿、获取
+    async fetchHomemultiDataAction(context) {
+      // 三种写法
+      // 1. 返回Promise，给Promise设置then
+      // fetch("http://123.207.32.32:8000/home/multidata").then(res => {
+      //   res.json().then(data => {
+      //     console.log(data)
+      //     context.commit("changeBanners", data.data.banner.list)
+      //     context.commit("changeRecommends", data.data.recommend.list)
+      //   })
+      // })
+
+      // 2. Promise 链式调用
+      // fetch("http://123.207.32.32:8000/home/multidata").then(res => {
+      //   return res.json()
+      // }).then(data => {
+      //   console.log(data)
+      //   context.commit("changeBanners", data.data.banner.list)
+      //   context.commit("changeRecommends", data.data.recommend.list)
+      // })
+
+      // 3. async/await 
+      const res = await fetch("http://123.207.32.32:8000/home/multidata");
+      const data = await res.json()
+      console.log(data)
+      context.commit("changeBanners", data.data.banner.list)
+      context.commit("changeRecommends", data.data.recommend.list)
+
     }
   }
 })

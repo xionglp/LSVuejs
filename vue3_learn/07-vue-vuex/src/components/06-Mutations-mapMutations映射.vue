@@ -34,8 +34,6 @@
   })
 
   const { changeName, incrementLevel, changeInfo } = newMutations
-
-
 </script>
 
 <style scoped>
