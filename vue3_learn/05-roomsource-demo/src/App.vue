@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <room-area :area-data="highScore"></room-area>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+  import { ref } from 'vue';
+  import RoomArea from "./components/RoomArea.vue"
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  const highScore = ref({})
+  setTimeout(() => {
+    import("./data/high_score.json").then(res => {
+      highScore.value = res.default
+      console.log(highScore.value)
+    })
+  }, 100);
+
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<!-- vue默认没有集成less-loader，需要手动导入less-loader库 -->
+<style lang="less" scoped>
+  .app {
+    width: 1032px;
+    margin: 0 auto;
+    padding: 40px;    
+  }
 </style>
