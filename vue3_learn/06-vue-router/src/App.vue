@@ -7,6 +7,7 @@
 
       <router-link to="/user/123">用户123</router-link>
       <router-link to="/user/456">用户456</router-link>
+      <router-link to="/order">订单</router-link>
 
       <!-- 其他元素跳转路由 -->
       <span style="cursor: pointer;" @click="homeSpanClick">去首页</span>
