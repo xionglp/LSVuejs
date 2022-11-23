@@ -42,8 +42,6 @@
   function increment() {
     store.dispatch("incrementCounterAction")
   }
-
-
 </script>
 
 <style scoped>
