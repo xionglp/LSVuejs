@@ -19,11 +19,11 @@ class LSRequest {
   }
 
   get(config) {
-    return this.instance.request({ ...config, method: "get" })
+    return this.request({ ...config, method: "get" })
   }
 
   post(config) {
-    return this.instance.request({ ...config, method: "post" })
+    return this.request({ ...config, method: "post" })
   }
 }
 
