@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './01_自定义内置指令/App.vue'
+import directives from  "./01_自定义内置指令/directives/index"
 
-import './assets/main.css'
-
-createApp(App).mount('#app')
+createApp(App).use(directives).mount('#app')
