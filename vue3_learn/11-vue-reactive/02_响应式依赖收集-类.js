@@ -28,12 +28,11 @@ function watchFn(fn) {
   fn()
 }
 
-const foo = function foo() {
+watchFn(function foo() {
   console.log("foo: ", obj.name)
   console.log("foo: ", obj.age)
   console.log("foo function")
-}
-watchFn(foo)
+})
 watchFn(function bar() {
   console.log("bar: ", obj.name)
   console.log("bar: ", obj.age)

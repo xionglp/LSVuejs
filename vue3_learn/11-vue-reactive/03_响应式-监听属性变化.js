@@ -45,7 +45,6 @@ Object.keys(obj).forEach(key => {
 
 // 方案二: new Proxy() -> vue3
 
-
 watchFn(function foo() {
   console.log("foo: ", obj.name)
   console.log("foo: ", obj.age)

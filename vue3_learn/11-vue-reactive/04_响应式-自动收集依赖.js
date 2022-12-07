@@ -94,5 +94,5 @@ watchFn(function bar() {
 
 // 修改obj对象的属性
 console.log("----------------------")
-// obj.name = "kobe"
-obj.age = 30
+obj.name = "kobe"
+// obj.age = 30
