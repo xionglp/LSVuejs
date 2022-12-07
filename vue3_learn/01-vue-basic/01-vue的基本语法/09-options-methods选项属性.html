@@ -32,7 +32,8 @@
       },
       methods: {
         // 强调: methods中的函数不能写成箭头函数
-        // 箭头函数绑定了父级作用域的上下文（this指向问题），this将不会按期望指向组件实例，this指向的是window
+        // 箭头函数绑定的是父级作用域的上下文（this指向问题），
+        // this将不会按期望指向组件实例，this指向的是window
         increment: function() {
           this.counter++
           console.log(this)

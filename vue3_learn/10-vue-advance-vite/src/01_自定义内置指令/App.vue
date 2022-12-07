@@ -4,8 +4,6 @@
   </div>
 </template>
 
-
-
 <script setup>
 const timestamp = 1231355453
 

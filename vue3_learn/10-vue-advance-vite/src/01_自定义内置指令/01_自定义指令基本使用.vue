@@ -18,9 +18,8 @@ export default {
 }
 </script>
 
-
 <script setup>
-import { onMounted, ref } from 'vue';
+// import { onMounted, ref } from 'vue';
 import useInput from "./hooks/useInput"
 
 // 1.方式一: 定义ref绑定到input中, 调用focus
